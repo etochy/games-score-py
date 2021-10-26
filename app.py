@@ -1,9 +1,13 @@
 import sys
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
+
 import json
 import numpy as np
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 max_size_data = 500
 
@@ -13,6 +17,7 @@ def home():
 
 # Save new score
 @app.route('/asteroid-scores', methods=['POST'])
+@cross_origin()
 def saveScore():
     scores = loadJson()
     data = request.json
@@ -30,6 +35,7 @@ def saveScore():
 
 
 @app.route('/asteroid-scores', methods=['GET'])
+@cross_origin()
 def getScores():
     scores = loadJson()
     return jsonify(scores)
