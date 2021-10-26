@@ -56,9 +56,10 @@ def sortScores(e):
   return e['score']
 
 if __name__ == '__main__':
-    try:
-        port = int(sys.argv[1]) # This is for a command-line input
-    except:
-        port = 443 # If you don't provide any port the port will be set to 12345
+    # try:
+    #     port = int(sys.argv[1]) # This is for a command-line input
+    # except:
+    #     port = 443 # If you don't provide any port the port will be set to 12345
 
-    app.run(port=port, debug=True)
+    # app.run(port=port, debug=True)
+    app.run()
